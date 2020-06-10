@@ -1,0 +1,12 @@
+%h2.title
+  収入科目一覧
+-if @incomes.present?
+  .content
+    .content__head
+      %p
+        科目名
+      %p
+        備考
+    .content__body
+      -@incomes.each do |income|
+        .content__body__name
