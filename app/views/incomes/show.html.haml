@@ -1,0 +1,11 @@
+%h2.text 収入科目の詳細
+= link_to "編集", [:edit, @income]
+= link_to "収入科目一覧へ戻る", incomes_path
+= succeed "\u{3000}" do
+  .content
+    .content__box
+      .content__box__text 名称
+      .content__box__puts= @income.name
+    %tr
+      .content__box__text 説明
+      .content__box__puts= @income.description
