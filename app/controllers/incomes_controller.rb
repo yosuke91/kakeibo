@@ -3,24 +3,24 @@ class IncomesController < ApplicationController
   def index
     @incomes = Income.order(created_at: :asc)
   end
+
+  def show
+  end
   
   def new
     @income = Income.new()
   end
 
-  def created
+  def edit
+  end
+
+  def create
     @income = Income.new(params[:income])
-    if income.save
+    if @income.save
       redirect_to @income, notice: "収入科目を登録しました"
     else 
       render "new"
     end
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def update
@@ -36,9 +36,7 @@ class IncomesController < ApplicationController
     @income.destroy
     redirect_to :incomes, notice: "科目を削除しました"
   end
-  
-  
-  
+
 private
   def set_income
     @income = Income.find(params[:id])
