@@ -1,0 +1,23 @@
+%h2.title
+  収入科目一覧
+.link1
+  = link_to "固定費科目の新規登録", new_fixedcost_path
+-if @fixedcosts.present?
+  .content
+    .content__head
+      %p
+        科目名
+      %p
+        備考
+      %p
+        操作
+    .content__body
+      -@fixedcosts.each do |fixedcost|
+        .content__body__name= fixedcost.name
+        .content__body__description= fixedcost.description
+        .content__body__link2
+          =link_to "編集", edit_fixedcost_path
+        .content__body__link2
+          =link_to "削除", fixcost, method: :delete, data: {confirm: "本当に削除しますか？"}
+-else
+  %p2 登録されている固定費科目がありません。
